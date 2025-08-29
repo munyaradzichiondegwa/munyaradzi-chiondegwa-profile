@@ -1,0 +1,365 @@
+/* General Styling */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding-top: 60px; /* To avoid content being hidden by the fixed header */
+    background-color: lightblue;
+    color: #1c1e21;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4 {
+    color: #333;
+}
+
+/* Header */
+header {
+    background:grey;
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #dddfe2;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1c1e21;
+    z-index: 1001; /* Ensure logo is above mobile nav */
+}
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin-left: 25px;
+}
+
+header nav a {
+    color:gold;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Hamburger Menu Styling */
+.hamburger-menu {
+    display: none; /* Hidden by default on wide screens */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001; /* Ensure it's clickable */
+}
+
+.hamburger-menu span {
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger to "X" Animation */
+.hamburger-menu.is-active span:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+.hamburger-menu.is-active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-menu.is-active span:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+
+/* Hero Section & Slideshow Animation */
+.hero {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: #fff;
+    padding: 120px 0 80px 0;
+    text-align: center;
+}
+
+#hero-slideshow {
+    height: 100px; /* Give it a fixed height to prevent layout shifts */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-title-slide {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    color: #fff;
+    font-weight: 700;
+    opacity: 0;
+    animation: fadeInOut 5s infinite;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    20%, 80% { opacity: 1; }
+}
+
+.hero p {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+/* Section Styling */
+section {
+    padding: 60px 0;
+    border-bottom: 1px solid #dddfe2;
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+/* About Section */
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-image {
+    flex: 0 0 250px;
+    text-align: center;
+}
+
+.about-image img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 5px solid #fff;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.skill-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.skill-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.skill-card p {
+    font-size: 0.95rem;
+    color: #606770;
+}
+
+/* Portfolio Section */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.portfolio-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-card-content {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.portfolio-card h4 {
+    font-size: 1.4rem;
+    margin-top: 0;
+}
+
+.portfolio-card .tech-stack {
+    font-size: 0.9rem;
+    color: #606770;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.portfolio-card-footer {
+    padding: 15px 20px;
+    background-color: #f5f6f7;
+    border-top: 1px solid #dddfe2;
+    text-align: right;
+}
+
+/* "Other Services" Section - reuses .skills styles */
+#other-services {
+    background-color: #f0f2f5;
+}
+
+/* Contact Section */
+.contact {
+    background: #333;
+    color: #fff;
+}
+
+.contact h2 {
+    color: #fff;
+}
+
+.contact-info {
+    text-align: center;
+    font-size: 1.1rem;
+}
+.contact-info p {
+    margin: 10px 0;
+}
+.contact-info a {
+    color: #87CEFA; /* Light Sky Blue */
+}
+
+/* Footer */
+footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+footer #datetime {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+
+/* ======================================= */
+/*          Responsive Design              */
+/* ======================================= */
+@media (max-width: 768px) {
+    .hero-title-slide {
+        font-size: 2.5rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-image {
+        margin-bottom: 20px;
+        flex-basis: auto;
+    }
+    
+    /* Show Hamburger and hide Desktop Nav */
+    .hamburger-menu {
+        display: flex;
+    }
+
+    #main-nav {
+        position: fixed;
+        top: 60px; /* Height of the header */
+        left: -100%; /* Start off-screen */
+        width: 100%;
+        height: calc(100vh - 60px);
+        background-color: black;
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+        transition: left 0.3s ease-in-out;
+        
+        /* Flexbox for vertical centering */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Style for when the mobile nav is active */
+    #main-nav.nav-active {
+        left: 0;
+    }
+    
+    #main-nav ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    #main-nav ul li {
+        margin: 0;
+        padding: 20px 0;
+        width: 100%;
+    }
+
+    #main-nav ul li a {
+        font-size: 1.5rem; /* Larger font for mobile menu */
+        color: #333;
+        font-weight: bold;
+    }
+}
